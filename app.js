@@ -13,13 +13,21 @@ app.set('view engine','ejs');
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
+
 app.get("/", function(req,res){
     res.render("home", {homestart:homeStartingContent} );
 });
 
-app.get("/about-us",function(req,res){
-    res.render("about")
-})
+
+app.get("/about",function(req,res){
+    res.render("about" , {aboutContent:aboutContent});
+});
+
+
+app.get("/contact",function(req,res){
+    res.render("contact" , {contactContent:contactContent});
+});
+
 
 app.listen(3000, function() {
     console.log("Server started on port 3000");
