@@ -17,7 +17,9 @@ app.get("/", function(req,res){
     res.render("home", {homestart:homeStartingContent} );
 });
 
-app.get("/about-us")
+app.get("/about-us",function(req,res){
+    res.render("about")
+})
 
 app.listen(3000, function() {
     console.log("Server started on port 3000");
