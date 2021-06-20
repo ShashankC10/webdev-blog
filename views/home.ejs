@@ -5,5 +5,13 @@
 <p>
     <%= homestart %>
 </p>
+<br>
+<% hpcontent.forEach(function(obj){ %>
+   
+    <h1><%= obj.title %></h1>
+    <p>
+        <%= obj.content %>
+    </p>
+<% }) %>
 
 <%- include("partials/footer"); -%>
