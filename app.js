@@ -1,5 +1,7 @@
 const express = require("express");
 const ejs= require("ejs");
+const _=require("lodash");
+
 const app = express();
 
 const homeStartingContent = "Lacus vel facilisis volutpat est velit egestas dui id ornare. Semper auctor neque vitae tempus quam. Sit amet cursus sit amet dictum sit amet justo. Viverra tellus in hac habitasse. Imperdiet proin fermentum leo vel orci porta. Donec ultrices tincidunt arcu non sodales neque sodales ut. Mattis molestie a iaculis at erat pellentesque adipiscing. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Odio euismod lacinia at quis risus sed vulputate odio ut. Cursus mattis molestie a iaculis at erat pellentesque adipiscing.";
@@ -42,6 +44,19 @@ app.post("/compose",function(req,res){
     };
     hpcontent.push(post);
     res.redirect('/');
+});
+
+app.get("/posts/:reqname",function(req,res){
+    const reqpage=_.lowerCase(req.params.reqname);
+    
+    hpcontent.forEach(function(posts){
+        const titleP=_.lowerCase(posts.title);
+        if (reqpage == titleP){
+            res.render("post", {posts:posts,titleP:titleP});
+        }
+
+
+    });
 });
 
 
