@@ -52,7 +52,7 @@ app.get("/posts/:reqname",function(req,res){
     hpcontent.forEach(function(posts){
         const titleP=_.lowerCase(posts.title);
         if (reqpage == titleP){
-            res.render("post", {posts:posts,titleP:titleP});
+            res.render("post", {posts:posts});
         }
 
 
